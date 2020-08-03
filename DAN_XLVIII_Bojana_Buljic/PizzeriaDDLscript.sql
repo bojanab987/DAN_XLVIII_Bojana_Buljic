@@ -37,7 +37,7 @@ CREATE TABLE tblOrderItem(
 ID int identity(1,1) PRIMARY KEY,
 ItemId INT FOREIGN KEY REFERENCES  tblMenu(ItemId) ON DELETE SET NULL,
 Quantity int NOT NULL,
-OrderID int FOREIGN KEY REFERENCES tblOrder(OrderID) NOT NULL
+OrderID int FOREIGN KEY REFERENCES tblOrder(OrderId) NOT NULL
 );
 GO
 --create view Order Item
