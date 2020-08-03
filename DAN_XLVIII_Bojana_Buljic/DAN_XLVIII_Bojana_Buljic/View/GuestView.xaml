@@ -23,10 +23,12 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="6" />
             <RowDefinition Height="auto" />
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto" />
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
         <Grid Grid.Column="1"
-              Grid.Row="1"
+              Grid.Row="3"
               Visibility="{Binding IsVisibleMenu, UpdateSourceTrigger=PropertyChanged}">
             <DataGrid ItemsSource="{Binding MenuList,UpdateSourceTrigger=PropertyChanged}"
                       SelectedItem="{Binding MenuItem, UpdateSourceTrigger=PropertyChanged}"
@@ -35,7 +37,7 @@
                       AutoGenerateColumns="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Name"
-                                        Binding="{Binding FoodName}" />
+                                        Binding="{Binding PizzaName}" />
                     <DataGridTextColumn Header="Price"
                                         Binding="{Binding Price}" />
                     <DataGridTemplateColumn Header="Quantity">
@@ -57,7 +59,7 @@
             </DataGrid>
         </Grid>
         <Grid Grid.Column="1"
-              Grid.Row="3"
+              Grid.Row="5"
               Visibility="{Binding IsVisibleOrderItem, UpdateSourceTrigger=PropertyChanged}">
             <DataGrid ItemsSource="{Binding OrderList,UpdateSourceTrigger=PropertyChanged}"
                       SelectedItem="{Binding OrderItem, UpdateSourceTrigger=PropertyChanged}"
@@ -83,33 +85,41 @@
             </DataGrid>
         </Grid>
         <Label Grid.Column="1"
-               Grid.Row="5"
+               Grid.Row="7"
                Content="Total price:"
                HorizontalAlignment="Left" />
         <Label Grid.Column="1"
-               Grid.Row="5"
+               Grid.Row="7"
                Content="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
                HorizontalAlignment="Right" />
         <Button Grid.Column="1"
-                Grid.Row="7"
+                Grid.Row="9"
                 Command="{Binding ConfirmOrder}"
                 Content="Confirm order"
                 HorizontalAlignment="Left"
                 Visibility="{Binding IsConfirmed, UpdateSourceTrigger=PropertyChanged}" />
         <Button Grid.Column="1"
-                Grid.Row="7"
+                Grid.Row="9"
                 Command="{Binding CancelOrder}"
                 Content="Cancel order"
                 HorizontalAlignment="Right" />
         <Label Grid.Column="1"
-               Grid.Row="9"
+               Grid.Row="11"
                Content="Status of order:"
                HorizontalAlignment="Left"
                Visibility="{Binding IsVisibleOrderStatus, UpdateSourceTrigger=PropertyChanged}" />
         <Label Grid.Column="1"
-               Grid.Row="9"
+               Grid.Row="11"
                Content="{Binding Ordered.OrderStatus, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
                Visibility="{Binding IsVisibleOrderStatus, UpdateSourceTrigger=PropertyChanged}"
                HorizontalAlignment="Right" />
+        <Button Grid.Column="1"
+                Grid.Row="1"
+                Name="btnLogOUt" 
+                Height="25"
+                Width="90"
+                HorizontalAlignment="Right"
+                Content="Log out"
+                Command="{Binding LogOut}"/>
     </Grid>
 </Window>

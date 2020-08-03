@@ -15,10 +15,12 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="20" />
             <RowDefinition Height="auto" />
+            <RowDefinition Height="6" />
+            <RowDefinition Height="auto" />
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
         <Grid Grid.Column="1"
-              Grid.Row="1">
+              Grid.Row="3">
             <DataGrid ItemsSource="{Binding OrderList,UpdateSourceTrigger=PropertyChanged}"
                       SelectedItem="{Binding Ordered, UpdateSourceTrigger=PropertyChanged}"
                       IsReadOnly="True"
@@ -27,7 +29,7 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Order ID"
                                         Binding="{Binding OrderId}" />
-                    <DataGridTextColumn Header="Date and time"
+                    <DataGridTextColumn Header="Order Date and time"
                                         Binding="{Binding OrderDateTime}" />
                     <DataGridTextColumn Header="Total price"
                                         Binding="{Binding TotalPrice}" />
@@ -38,7 +40,7 @@
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="x"
+                                <Button Content="delete"
                                         Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=DataContext.DeleteOrder}" />
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
@@ -54,13 +56,21 @@
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Reject"
+                                <Button Content="Deny"
                                         Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=DataContext.DenyOrder}" />
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
-            </DataGrid>
+            </DataGrid>            
         </Grid>
+        <Button Grid.Column="1"
+                Grid.Row="1" 
+                Name="btnLogOut"
+                Height="25"
+                Width="80"
+                HorizontalAlignment="Right"
+                Content="Log Out"
+                Command="{Binding LogOut}"/>
     </Grid>
 </Window>

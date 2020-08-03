@@ -450,7 +450,50 @@ namespace DAN_XLVIII_Bojana_Buljic.ViewModel
             {
                 return false;
             }
-        }     
+        }
+
+        /// <summary>
+        /// LogOut Command
+        /// </summary>
+        private ICommand logOut;
+        public ICommand LogOut
+        {
+            get
+            {
+                if (logOut == null)
+                {
+                    logOut = new RelayCommand(param => LogOutExecute(), param => CanLogOutExecute());
+                }
+                return logOut;
+            }
+        }
+
+        /// <summary>
+        /// Method for logging out guest from app
+        /// </summary>  
+        private void LogOutExecute()
+        {
+            try
+            {
+                //closes guest view and opens empty LogInView
+                LoginView loginView = new LoginView();
+                guestView.Close();
+                loginView.ShowDialog();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Method check if logout is possible to be Executed
+        /// </summary>
+        private bool CanLogOutExecute()
+        {
+            return true;
+        }
 
         #endregion
 
