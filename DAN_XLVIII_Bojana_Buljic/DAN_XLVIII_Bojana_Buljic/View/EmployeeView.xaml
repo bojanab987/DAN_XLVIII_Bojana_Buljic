@@ -1,0 +1,76 @@
+﻿<Window x:Class="DAN_XLVIII_Bojana_Buljic.View.EmployeeView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DAN_XLVIII_Bojana_Buljic.View"
+        mc:Ignorable="d"
+        Title="Employee" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="6" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="1"
+              Grid.Row="3">
+            <DataGrid ItemsSource="{Binding OrderList,UpdateSourceTrigger=PropertyChanged}"
+                      SelectedItem="{Binding Ordered, UpdateSourceTrigger=PropertyChanged}"
+                      IsReadOnly="True"
+                      HeadersVisibility="Column"
+                      AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Order ID"
+                                        Binding="{Binding OrderId}" />
+                    <DataGridTextColumn Header="Order Date and time"
+                                        Binding="{Binding OrderDateTime}" />
+                    <DataGridTextColumn Header="Total price"
+                                        Binding="{Binding TotalPrice}" />
+                    <DataGridTextColumn Header="Customer"
+                                        Binding="{Binding JMBG}" />
+                    <DataGridTextColumn Header="Status"
+                                        Binding="{Binding OrderStatus}" />
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="delete"
+                                        Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=DataContext.DeleteOrder}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Approve"
+                                        Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=DataContext.ApproveOrder}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Deny"
+                                        Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=DataContext.DenyOrder}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>            
+        </Grid>
+        <Button Grid.Column="1"
+                Grid.Row="1" 
+                Name="btnLogOut"
+                Height="25"
+                Width="80"
+                HorizontalAlignment="Right"
+                Content="Log Out"
+                Command="{Binding LogOut}"/>
+    </Grid>
+</Window>
