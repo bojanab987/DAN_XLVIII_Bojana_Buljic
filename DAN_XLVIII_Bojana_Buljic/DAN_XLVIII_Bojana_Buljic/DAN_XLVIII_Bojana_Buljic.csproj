@@ -97,6 +97,9 @@
     <Compile Include="Model\vwOrderItem.cs">
       <DependentUpon>PizzeriaDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Services\MenuService.cs" />
+    <Compile Include="Services\OrderItemsService.cs" />
+    <Compile Include="Services\OrderService.cs" />
     <Compile Include="Validations\Validation.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
