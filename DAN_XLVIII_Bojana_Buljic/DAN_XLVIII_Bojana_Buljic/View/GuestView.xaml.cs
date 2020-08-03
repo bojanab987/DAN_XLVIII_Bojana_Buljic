@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAN_XLVIII_Bojana_Buljic.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,10 @@ namespace DAN_XLVIII_Bojana_Buljic.View
     /// </summary>
     public partial class GuestView : Window
     {
-        public GuestView()
+        public GuestView(string username)
         {
             InitializeComponent();
+            this.DataContext = new GuestViewModel(this, username);
         }
     }
 }

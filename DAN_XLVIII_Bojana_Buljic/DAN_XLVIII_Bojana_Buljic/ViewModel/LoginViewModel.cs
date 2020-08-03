@@ -60,7 +60,7 @@ namespace DAN_XLVIII_Bojana_Buljic.ViewModel
                 }
                 else if (Validations.Validation.IsValidJMBG(Username) && password == "Gost")
                 {
-                    GuestView guest = new GuestView();
+                    GuestView guest = new GuestView(username);
                     logInView.Close();
                     guest.ShowDialog();                    
                 }

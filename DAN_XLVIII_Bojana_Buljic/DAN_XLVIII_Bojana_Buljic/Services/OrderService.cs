@@ -180,7 +180,7 @@ namespace DAN_XLVIII_Bojana_Buljic.Services
         /// Change order status to denied and saves changes to database.
         /// </summary>
         /// <param name="order"></param>
-        public void DenzOrder(vwOrder order)
+        public void DenyOrder(vwOrder order)
         {
             try
             {

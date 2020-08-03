@@ -101,6 +101,8 @@
     <Compile Include="Services\OrderItemsService.cs" />
     <Compile Include="Services\OrderService.cs" />
     <Compile Include="Validations\Validation.cs" />
+    <Compile Include="ViewModel\EmployeeViewModel.cs" />
+    <Compile Include="ViewModel\GuestViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\EmployeeView.xaml.cs">
