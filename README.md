@@ -1,0 +1,2 @@
+WPF app - Pizzeria
+MVVM
